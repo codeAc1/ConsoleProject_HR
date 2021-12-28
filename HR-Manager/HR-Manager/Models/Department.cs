@@ -47,7 +47,8 @@ namespace HR_Manager.Models
                 }
 
             }
-        } 
+        }
+        public static int workerCount;
         public double SalaryLimit
         {
             get
@@ -63,20 +64,15 @@ namespace HR_Manager.Models
             }
         }
 
+        public double total;
+        public double avrg;
+        
+
 
         public Employee[] Employees = Array.Empty<Employee>();
-        public double ClcSalaryAverage(Department department)
-        {
-            double totalsalary = 0;
-            int counter = 0;
-            foreach (Employee item in department.Employees)
-            {
-                totalsalary += item.Salary;
-                counter++;
-            }
-            return totalsalary / counter;
 
-        }
+        
+
         public bool CheckName(string str)
         {
             if (!string.IsNullOrWhiteSpace(str))
@@ -88,12 +84,19 @@ namespace HR_Manager.Models
             }
             return false;
         }
+       
         public override string ToString()
         {
-           
-            Console.WriteLine("\nMovcud Departamentlerin siyahisi\n");
-            return $"\nDepartament adi:{Name}\nEmakdas limiti:{WorkerLimit}\nMaksimum maas limiti:{SalaryLimit}\n";
+            
+
+         return $"       Departament adi: {Name}" +
+                $"\n      Emakdas limiti: {WorkerLimit}" +
+                $"\nMaksimum maas limiti: {SalaryLimit}" +
+                $"\n   Faktiki isci sayi: {workerCount} " +
+                $"\n     Maas ortalamasi:{"Tapa Bilmedim"}";
             
         }
+
+
     }
 }

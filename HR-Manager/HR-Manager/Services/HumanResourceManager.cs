@@ -24,113 +24,61 @@ namespace HR_Manager.Services
 
         public void AddDepartment(string name, int workerlimit, double salarylimit)
         {
-            Department departmentitem = new Department(name:name,workerlimit:workerlimit,salarylimit:salarylimit);
+
+            Department departmentitem = new Department(name: name, workerlimit: workerlimit, salarylimit: salarylimit);
             Array.Resize(ref _departments, _departments.Length + 1);
             _departments[_departments.Length - 1] = departmentitem;
         }
 
-        public void AddEmployee(string departmentname, string fullname, string position, double salary)
+        public void EditDepartments(string depItemName,string name, int workerlimit, double salarylimit)
         {
-            
-
-            Department department = FindDepartment(departmentname);
-            if (department == null)
-            {
-                Console.WriteLine($"Sistemde {departmentname} adda departament yoxdur evvelce Departament elave edin");
-            }
-            
-            else if (_employees.Length> department.WorkerLimit)
-            {
-
-                Console.WriteLine("Departamentin isci limiti dolub. Isci elave ede bilmersiz");
-            }
-
-            else
-            {
-
-                Employee employeeitem = new Employee(departmentname)
-                {
-                    DepartmentName = departmentname,
-                    FullName = fullname,
-                    Position = position,
-                    Salary = salary
-                };
-                Array.Resize(ref _employees, _employees.Length + 1);
-                _employees[_employees.Length - 1] = employeeitem;
-
-            }
-
-        }
-
-        public void EditDepartments(string name, string newname)
-        {
-
-            if (FindDepartment(newname) != null) return;
-            {
-                Department department = FindDepartment(name);
-
-                if (department != null)
-                {
-                    department.Name = newname;
-                    foreach (var item in department.Employees)
-                    {
-                        item.DepartmentName = newname;
-                    }
-                }
-            }
-        }
-
-        public void EditEmployee(string departmentname, string no, string position, double salary)
-        {
-            throw new NotImplementedException();
-        }
-
-       
-
-        public void RemoveEmployee(string no, string departmentname)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool CheckName(string name)
-        {
-            if (!string.IsNullOrWhiteSpace(name))
-            {
-                if (name.Length > 1)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public bool CheckDepartment(string name)
-        {
+            Department department = null;
 
             foreach (Department item in _departments)
             {
-                if (item.Name == name)
+                if (item.Name == depItemName)
                 {
-                    return false;
-
+                    department = item;
+                    break;
                 }
+
             }
+            department.Name = name;
+            department.WorkerLimit = workerlimit;
+            department.SalaryLimit = salarylimit;
             
-            return true;
         }
 
-        public Department FindDepartment(string name)
+        public void AddEmployee(string  departmentname, string fullname, string position, double salary)
         {
-            foreach (Department item in _departments)
-            {
-                if (item.Name == name)
-                {
-                    return item;
+            Employee employeeitem = new Employee(departmentname);
+            Array.Resize(ref _employees, _employees.Length + 1);
+            _employees[_employees.Length - 1] = employeeitem;
 
+            employeeitem.FullName = fullname;
+            employeeitem.Position = position;
+            employeeitem.Salary = salary;
+        }
+
+        public void EditEmployee(string no, string position, double salary)
+        {
+
+            Employee employee = null;
+
+            foreach (Employee item in _employees)
+            {
+                if (_employees != null && item.No == no)
+                {
+                    employee = item;
+                    break;
                 }
+
             }
-            return null;
+
+            employee.Position = position;
+            employee.Salary = salary;
+
+
         }
 
         internal bool CheckFullName(string fullname)
@@ -161,6 +109,108 @@ namespace HR_Manager.Services
 
             return false;
         }
+        public bool CheckName(string name)
+        {
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                if (name.Length > 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public Department FindDepartmentByName(string name)
+        {
+            foreach (var item in _departments)
+            {
+                if (item.Name == name)
+                {
+                    return item;
+
+                }
+            }
+            return null;
+        }
+
+        public Employee[] GetEmpByDepartment(string depname)
+        {
+            Employee[] employees = new Employee[0];
+
+            foreach (Employee item in _employees)
+            {
+                if (_employees != null && item.DepartmentName==depname)
+                {
+                    Array.Resize(ref employees, employees.Length + 1);
+                    employees[employees.Length - 1] = item;
+                }
+            }
+
+            return employees;
+        }
+
+        public void RemoveEmployee(string empNo)
+        {
+            for (int i = 0; i < _employees.Length; i++)
+            {
+                if (_employees[i] != null && _employees[i].No ==empNo)
+                {
+                    _employees[i] = null;
+                    
+                    return;
+
+                }
+            }
+        }
+
+        public Department GetDepartmentByName(string DepName)
+        {
+            Department department = null;
+
+            foreach (Department item in _departments)
+            {
+                if (item != null && item.Name == DepName)
+                {
+                    department = item;
+                }
+            }
+
+            return department;
+        }
+
+        public Employee GetEmployeeByEmpNo(string EmpNO)
+        {
+            Employee employee = null;
+
+            foreach (Employee item in _employees)
+            {
+                if (item != null && item.No == EmpNO)
+                {
+                    employee = item;
+                }
+            }
+
+            return employee;
+        }
+        public Department[] GetDepartmentsByName(string DepName)
+        {
+            Department[] departments = new Department[0];
+
+            foreach (Department item in _departments)
+            {
+                if (item.Name == DepName)
+                {
+                    Array.Resize(ref departments, departments.Length + 1);
+                    departments[departments.Length - 1] = item;
+                }
+            }
+
+            return departments;
+
+        }
+
     }
     }
 

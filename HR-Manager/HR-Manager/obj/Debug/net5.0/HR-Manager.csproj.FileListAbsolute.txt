@@ -14,3 +14,19 @@ C:\Users\Admin\Desktop\Kurs\Tapsiriqlar\Proje\HR-Manager\HR-Manager\obj\Debug\ne
 C:\Users\Admin\Desktop\Kurs\Tapsiriqlar\Proje\HR-Manager\HR-Manager\obj\Debug\net5.0\ref\HR-Manager.dll
 C:\Users\Admin\Desktop\Kurs\Tapsiriqlar\Proje\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.pdb
 C:\Users\Admin\Desktop\Kurs\Tapsiriqlar\Proje\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.genruntimeconfig.cache
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\bin\Debug\net5.0\HR-Manager.exe
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\bin\Debug\net5.0\HR-Manager.deps.json
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\bin\Debug\net5.0\HR-Manager.runtimeconfig.json
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\bin\Debug\net5.0\HR-Manager.runtimeconfig.dev.json
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\bin\Debug\net5.0\HR-Manager.dll
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\bin\Debug\net5.0\ref\HR-Manager.dll
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\bin\Debug\net5.0\HR-Manager.pdb
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.AssemblyInfo.cs
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.dll
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\ref\HR-Manager.dll
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.pdb
+C:\Users\Admin\Desktop\New folder\HR-Manager\HR-Manager\obj\Debug\net5.0\HR-Manager.genruntimeconfig.cache

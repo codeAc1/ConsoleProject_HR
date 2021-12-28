@@ -23,6 +23,8 @@ namespace HR_Manager.Models
         }
 
         public string No;
+        
+       
         private string _fullName;
         public string FullName
         {
@@ -123,7 +125,11 @@ namespace HR_Manager.Models
         }
         public override string ToString()
         {
-            return $" FullName: {FullName}\n Nomresi: {No}\n Departmenti: {DepartmentName}\n Vezifesi: {Position}\n Maasi: {Salary}\n";
+            return $" FullName: {FullName}\n " +
+                $"     Nomresi: {No}\n " +
+                $" Departmenti: {DepartmentName}\n " +
+                $"    Vezifesi: {Position}\n " +
+                $"       Maasi: {Salary}\n";
         }
 
         
