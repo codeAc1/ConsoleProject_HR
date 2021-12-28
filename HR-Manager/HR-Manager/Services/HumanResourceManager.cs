@@ -141,7 +141,7 @@ namespace HR_Manager.Services
 
             foreach (Employee item in _employees)
             {
-                if (_employees != null && item.DepartmentName==depname)
+                if (item != null && item.DepartmentName==depname)
                 {
                     Array.Resize(ref employees, employees.Length + 1);
                     employees[employees.Length - 1] = item;
