@@ -44,13 +44,13 @@ namespace HR_Manager.Services
                 Console.WriteLine("------------------------------------");
             }
         }
-        public void EditDepartments(string depItemName,string name)
+        public void EditDepartments(string depItemName, string name)
         {
             Department department = null;
 
             foreach (Department item in _departments)
             {
-                if (item.Name == depItemName)
+                if (item.Employees != null && item.Name == depItemName)
                 {
                     department = item;
                     break;
@@ -58,25 +58,24 @@ namespace HR_Manager.Services
 
             }
             department.Name = name;
-            
+
 
             foreach (Department item in _departments)
             {
-                foreach (Employee item2 in item.Employees)
+                if (item.Employees!=null&&item.Name.ToUpper()==depItemName.ToUpper())
                 {
-                    if (item2.DepartmentName==depItemName)
+                    foreach (Employee item2 in item.Employees)
                     {
                         item2.DepartmentName = name;
-                       
                     }
                 }
             }
 
 
         }
-        public void AddEmployee(string  departmentname, string fullname, string position, double salary)
+        public void AddEmployee(string departmentname, string fullname, string position, double salary)
         {
-             Employee employee = new Employee(departmentname,fullname,position,salary);
+            Employee employee = new Employee(departmentname, fullname, position, salary);
 
             foreach (Department item in _departments)
             {
@@ -84,7 +83,7 @@ namespace HR_Manager.Services
                 {
                     Array.Resize(ref item.Employees, item.Employees.Length + 1);
                     item.Employees[item.Employees.Length - 1] = employee;
-                }         
+                }
             }
         }
         public void EditEmployee(string no, string position, double salary)
@@ -94,7 +93,7 @@ namespace HR_Manager.Services
             {
                 foreach (Employee item2 in item.Employees)
                 {
-                    if (item2.No.ToUpper()==no.ToUpper())
+                    if (item2.No.ToUpper() == no.ToUpper())
                     {
                         item2.Position = position;
                         item2.Salary = salary;
@@ -136,25 +135,13 @@ namespace HR_Manager.Services
             {
                 if (str.Length > 1)
                 {
-                    if (Char.IsUpper(str[0]))
-                    {
-                        foreach (var chr in str)
-                        {
-                            if (Char.IsLetter(chr) == false)
-                            {
-                                return false;
-
-                            }
-                        }
-                        return true;
-                    }
-
+                    return true;
                 }
             }
 
             return false;
         }
-        public void RemoveEmployee(string empNo,string depName)
+        public void RemoveEmployee(string empNo, string depName)
         {
             foreach (Department item in Departments)
             {
@@ -169,7 +156,7 @@ namespace HR_Manager.Services
                             return;
                         }
                     }
-                 
+
                 }
             }
         }
@@ -188,5 +175,5 @@ namespace HR_Manager.Services
             return department;
         }
     }
-    }
+}
 

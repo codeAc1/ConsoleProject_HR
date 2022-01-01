@@ -96,7 +96,7 @@ namespace HR_Manager
                 if (check)
                     Console.Write("Yaratmaq istediyiniz Departamentin adini daxil edin: ");
                 else
-                    Console.Write("Departament adi minimum 2 herfden ibaret olmalidir ve boyuk herfle baslamalidir!!!\n==>>duzgun daxil edin:");
+                    Console.Write("Departament adi minimum 2 herfden ibaret olmalidir!!!\n==>>duzgun daxil edin:");
 
                 name = Console.ReadLine();
                 check = false;
@@ -213,32 +213,49 @@ namespace HR_Manager
 
             }
             depName = depName.ToUpper();
-
             foreach (Department item in humanResourceManager.Departments)
             {
-                if (item.Employees.Length > 0)
+                if (item.Employees != null && item.Name.ToUpper() == depName.ToUpper())
                 {
+                    if (item.Employees != null && item.Employees.Length > 0)
+                    {
+                        foreach (Employee item2 in item.Employees)
+                        {
+                            Console.WriteLine(item2);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{depName}-Adli Departamentde isci yoxdur");
+                        return;
+                    }
+                }
+
+            }
+            int count2 = 0;
+            foreach (Department item in humanResourceManager.Departments)
+            {
+                if (item.Name.ToUpper() == depName.ToUpper())
+                {
+
 
                     foreach (Employee item2 in item.Employees)
                     {
-
-                        if (item2.DepartmentName != null && item2.DepartmentName == depName)
+                        if (item2 == null)
                         {
-                            Console.WriteLine($"{depName}-Adli departamentin iscileri.");
-                            Console.WriteLine(item2);
+                            count2++;
                         }
-
-
                     }
 
+                    if (item.Employees.Length == count2)
+                    {
+                        Console.WriteLine($"!!! {depName}-adli Departamentde {item.Employees.Length}-nefer isci var idi \n" +
+                            $"lakin hamisi isden cixarilib");
+                        return;
+                    }
                 }
-                else
-                {
-                    Console.WriteLine($"{depName}-Adli departamentde hec bir isci yoxdur.");
-                }
-
-
             }
+
 
 
 
@@ -508,7 +525,7 @@ namespace HR_Manager
                 }
                 else
                 {
-                    Console.Write("Vezife adi minimum 2 herfden ibaret olmalidir ve boyuk herfle baslamalidir\n==>Yeniden daxil edin:");
+                    Console.Write("Vezife adi minimum 2 herfden ibaret olmalidir\n==>Yeniden daxil edin:");
                 }
 
                 position = Console.ReadLine();
@@ -549,7 +566,7 @@ namespace HR_Manager
                 return;
             }
             GetDepartments(ref humanResourceManager);
-            Console.Write("Hansi Departamentdeki iscini silmek isteyirsense hemin departamentin adini Daxil Et: ");
+            Console.Write("Hansi Departamentdeki iscini deyismek isteyirsense hemin departamentin adini Daxil Et: ");
             start1:
             string DepName = Console.ReadLine();
             bool DepNameno = true;
@@ -621,7 +638,7 @@ namespace HR_Manager
                     }
                 }
             }
-            Console.WriteLine($"Deyismek  istediyiniz iscinin nomresini daxil edin: ");
+            Console.WriteLine($"Deyismek istediyiniz iscinin nomresini daxil edin: ");
             start2:
             string EmpNo = Console.ReadLine();
             bool EmpNoNo = true;
@@ -663,7 +680,7 @@ namespace HR_Manager
                 if (check)
                     Console.Write("Iscinin vezifesini daxil edin: ");
                 else
-                    Console.WriteLine("Vezife adi minimum 2 herfden ibaret olmalidir ve boyuk herfle baslamalidir\n==>Yeniden daxil edin:");
+                    Console.WriteLine("Vezife adi minimum 2 herfden ibaret olmalidir\n==>Yeniden daxil edin:");
 
                 position = Console.ReadLine();
                 check = false;
