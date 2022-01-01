@@ -9,6 +9,7 @@ namespace HR_Manager.Interfaces
 {
     interface IHumanResourceManager
     {
+
         public Department[] Departments { get; }
         void AddDepartment(string name, int workerlimit, double salarylimit);
         void EditDepartments(string depItemName, string name);

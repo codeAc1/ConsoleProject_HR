@@ -10,6 +10,7 @@ namespace HR_Manager.Services
 {
     class HumanResourceManager : IHumanResourceManager
     {
+
         public Department[] Departments => _departments;
         private Department[] _departments;
         public HumanResourceManager()

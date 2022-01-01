@@ -8,6 +8,7 @@ namespace HR_Manager.Models
 {
     class Employee
     {
+
         public static int Total = 1000;
         public Employee(string departmentname,string fullName,string position,double salary)
         {

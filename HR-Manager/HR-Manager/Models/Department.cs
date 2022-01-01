@@ -8,6 +8,7 @@ namespace HR_Manager.Models
 {
     class Department
     {
+
         public Department(string name, int workerlimit, double salarylimit)
         {
             this.Name = name;

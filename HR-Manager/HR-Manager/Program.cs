@@ -6,6 +6,7 @@ namespace HR_Manager
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             HumanResourceManager humanResourceManager = new HumanResourceManager();
