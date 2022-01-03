@@ -9,8 +9,6 @@ namespace HR_Manager.Models
     class Employee
     {
         public static int Total = 1000;
-
-      
         public Employee(string departmentname,string fullName,string position,double salary)
         {
             FullName = fullName;
@@ -23,12 +21,7 @@ namespace HR_Manager.Models
             sb.Append(Char.ToUpper(departmentname[1]));
             No = sb + Total.ToString();
         }
-
-       
-
-        public string No;
-        
-       
+        public string No;  
         private string _fullName;
         public string FullName
         {
@@ -48,7 +41,6 @@ namespace HR_Manager.Models
                 }
             }
         }
-
         private string _position;
         public string Position
         {
@@ -68,7 +60,6 @@ namespace HR_Manager.Models
                 }
             }
         }
-
         private double _salary;
         public double Salary
         {
@@ -85,9 +76,7 @@ namespace HR_Manager.Models
 
             }
         }
-
         public string DepartmentName;
-
         public static bool CheckFullName(string str)
         {
             if (!string.IsNullOrWhiteSpace(str))
@@ -129,13 +118,11 @@ namespace HR_Manager.Models
         }
         public override string ToString()
         {
-            return $"  FullName: {FullName}\n " +
+            return $"     FullName: {FullName}\n " +
                 $"     Nomresi: {No}\n " +
-                $" Departmenti: {DepartmentName}\n " +
+                $"Departamenti: {DepartmentName}\n " +
                 $"    Vezifesi: {Position}\n " +
                 $"       Maasi: {Salary}\n";
         }
-
-        
     }
 }

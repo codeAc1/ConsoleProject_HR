@@ -12,9 +12,6 @@ namespace HR_Manager.Services
     {
         public Department[] Departments => _departments;
         private Department[] _departments;
-
-        
-
         public HumanResourceManager()
         {
             _departments = new Department[0];
@@ -38,20 +35,12 @@ namespace HR_Manager.Services
             Console.WriteLine("\n                ==>> Qeydiyyatda olan butun Departamentler<<==              \n");
             foreach (Department item in Departments)
             {
-                double ortalama = 0;
-
-                
-                    ortalama = item.CalcSalaryAverage(item);
-                
-                
-                Department.workerCount = item.Employees.Length;
                 Console.WriteLine(item);
-                Console.WriteLine($"     Maas ortalamasi: {ortalama} AZN");
+                Console.WriteLine($"     Maas ortalamasi: {item.CalcSalaryAverage(item)} AZN");
                 Console.WriteLine($"Odenilen Toplam maas: {item.TotalSalary(item)} AZN");
                 Console.WriteLine($"         Qaliq budce: {item.SalaryLimit - item.TotalSalary(item)} AZN");
+                Console.WriteLine($"   Hazirki isci sayi: {item.WorkerCount(item)}");
                 Console.WriteLine("------------------------------------");
-
-
             }
         }
         public void EditDepartments(string depItemName,string name)
@@ -84,7 +73,6 @@ namespace HR_Manager.Services
 
 
         }
-
         public void AddEmployee(string  departmentname, string fullname, string position, double salary)
         {
              Employee employee = new Employee(departmentname,fullname,position,salary);
@@ -98,7 +86,6 @@ namespace HR_Manager.Services
                 }         
             }
         }
-
         public void EditEmployee(string no, string position, double salary)
         {
 
@@ -114,7 +101,6 @@ namespace HR_Manager.Services
                 }
             }
         }
-
         internal bool CheckFullName(string fullname)
         {
             if (!string.IsNullOrWhiteSpace(fullname))
@@ -167,22 +153,6 @@ namespace HR_Manager.Services
 
             return false;
         }
-
-        public Department FindDepartmentByName(string name)
-        {
-            foreach (var item in _departments)
-            {
-                if (item.Name == name)
-                {
-                    return item;
-
-                }
-            }
-            return null;
-        }
-
-        
-
         public void RemoveEmployee(string empNo,string depName)
         {
             foreach (Department item in Departments)
@@ -202,7 +172,6 @@ namespace HR_Manager.Services
                 }
             }
         }
-
         public Department GetDepartmentByName(string DepName)
         {
             Department department = null;
@@ -217,25 +186,6 @@ namespace HR_Manager.Services
 
             return department;
         }
-
-        
-        public Department[] GetDepartmentsByName(string DepName)
-        {
-            Department[] departments = new Department[0];
-
-            foreach (Department item in _departments)
-            {
-                if (item.Name == DepName)
-                {
-                    Array.Resize(ref departments, departments.Length + 1);
-                    departments[departments.Length - 1] = item;
-                }
-            }
-
-            return departments;
-
-        }
-
     }
     }
 

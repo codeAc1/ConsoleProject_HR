@@ -46,7 +46,6 @@ namespace HR_Manager.Models
 
             }
         }
-        public static int workerCount;
         public double SalaryLimit
         {
             get
@@ -68,14 +67,14 @@ namespace HR_Manager.Models
             int counter = 0;
             foreach (var item in department.Employees)
             {
-                if (item!=null)
+                if (item != null)
                 {
                     totalsalary += item.Salary;
                     counter++;
                 }
-                
+
             }
-            if (totalsalary==0)
+            if (totalsalary == 0)
             {
                 return 0;
             }
@@ -91,12 +90,30 @@ namespace HR_Manager.Models
                 if (item != null)
                 {
                     totalsalary += item.Salary;
-                    
+
                 }
             }
             return totalsalary;
         }
+        public double WorkerCount(Department department)
+        {
 
+
+            int counter = 0;
+            foreach (var item in department.Employees)
+            {
+                if (item != null)
+                {
+                    counter++;
+                }
+
+            }
+            if (counter == 0)
+            {
+                return 0;
+            }
+            return counter;
+        }
         public bool CheckName(string str)
         {
             if (!string.IsNullOrWhiteSpace(str))
@@ -108,18 +125,15 @@ namespace HR_Manager.Models
             }
             return false;
         }
-
         public override string ToString()
         {
 
 
             return $"     Departament adi: {Name}" +
                    $"\nMaksimum isci limiti: {WorkerLimit}" +
-                   $"\nMaksimum maas limiti: {SalaryLimit}" +
-                   $"\n   Faktiki isci sayi: {workerCount} ";
+                   $"\nMaksimum maas limiti: {SalaryLimit}";
+
 
         }
-
-
     }
 }
