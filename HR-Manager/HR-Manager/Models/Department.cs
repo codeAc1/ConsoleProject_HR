@@ -14,11 +14,9 @@ namespace HR_Manager.Models
             this.WorkerLimit = workerlimit;
             this.SalaryLimit = salarylimit;
         }
-
         private string _name;
         private int _workerLimit;
         private double _salaryLimit;
-
         public string Name
         {
             get
@@ -63,15 +61,41 @@ namespace HR_Manager.Models
                 }
             }
         }
+        public Employee[] Employees = new Employee[0];
+        public double CalcSalaryAverage(Department department)
+        {
+            double totalsalary = 0;
+            int counter = 0;
+            foreach (var item in department.Employees)
+            {
+                if (item!=null)
+                {
+                    totalsalary += item.Salary;
+                    counter++;
+                }
+                
+            }
+            if (totalsalary==0)
+            {
+                return 0;
+            }
+            return totalsalary / counter;
 
-        public double total;
-        public double avrg;
-        
+        }
+        public double TotalSalary(Department department)
+        {
 
-
-        public Employee[] Employees = Array.Empty<Employee>();
-
-        
+            double totalsalary = 0;
+            foreach (var item in department.Employees)
+            {
+                if (item != null)
+                {
+                    totalsalary += item.Salary;
+                    
+                }
+            }
+            return totalsalary;
+        }
 
         public bool CheckName(string str)
         {
@@ -79,22 +103,21 @@ namespace HR_Manager.Models
             {
                 if (str.Length > 1)
                 {
-                        return true;
+                    return true;
                 }
             }
             return false;
         }
-       
+
         public override string ToString()
         {
-            
 
-         return $"       Departament adi: {Name}" +
-                $"\n      Emakdas limiti: {WorkerLimit}" +
-                $"\nMaksimum maas limiti: {SalaryLimit}" +
-                $"\n   Faktiki isci sayi: {workerCount} " +
-                $"\n     Maas ortalamasi:{"Tapa Bilmedim"}";
-            
+
+            return $"     Departament adi: {Name}" +
+                   $"\nMaksimum isci limiti: {WorkerLimit}" +
+                   $"\nMaksimum maas limiti: {SalaryLimit}" +
+                   $"\n   Faktiki isci sayi: {workerCount} ";
+
         }
 
 

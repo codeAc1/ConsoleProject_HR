@@ -11,9 +11,11 @@ namespace HR_Manager.Models
         public static int Total = 1000;
 
       
-        public Employee(string departmentname)
+        public Employee(string departmentname,string fullName,string position,double salary)
         {
-            
+            FullName = fullName;
+            Position = position;
+            Salary = salary;
             StringBuilder sb = new StringBuilder();
             DepartmentName = departmentname;
             Total++;
@@ -21,6 +23,8 @@ namespace HR_Manager.Models
             sb.Append(Char.ToUpper(departmentname[1]));
             No = sb + Total.ToString();
         }
+
+       
 
         public string No;
         
@@ -125,7 +129,7 @@ namespace HR_Manager.Models
         }
         public override string ToString()
         {
-            return $" FullName: {FullName}\n " +
+            return $"  FullName: {FullName}\n " +
                 $"     Nomresi: {No}\n " +
                 $" Departmenti: {DepartmentName}\n " +
                 $"    Vezifesi: {Position}\n " +
